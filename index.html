@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuelo Espinosa — Creador audiovisual</title>
+<meta name="description" content="Creador audiovisual de Puerto Madryn. Documento la naturaleza y los destinos de Argentina para acercarlos a las personas e inspirar su conservación.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://soymanuelo.com/">
+<meta property="og:title" content="Manuelo Espinosa — Creador audiovisual">
+<meta property="og:description" content="Documento la naturaleza y los destinos de Argentina. 17,8 mil seguidores · 100 mil de alcance promedio por Reel.">
+<meta property="og:image" content="https://soymanuelo.com/assets/img/portada.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F1110">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#0F1110; --roca:#151816; --linea:rgba(237,235,230,.13);
+  --hueso:#EDEBE6; --texto2:#CFCDC6; --niebla:#A3A39C; --arena:#D2B98B;
+  --titulo:'Archivo',system-ui,sans-serif; --cuerpo:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ancho:1200px; --lado:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--noche);color:var(--hueso);font-family:var(--cuerpo);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.contenedor{max-width:var(--ancho);margin:0 auto;padding:0 var(--lado)}
+.etiqueta{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--arena);margin:0}
+h1,h2,h3{font-family:var(--titulo);margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(30px,4.2vw,46px);line-height:1.08;font-weight:700}
+.intro-seccion{display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:44px}
+.intro-seccion p.bajada{margin:0;color:var(--texto2)}
+section{padding:clamp(80px,11vw,130px) 0}
+.alterna{background:var(--roca);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:2px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--cuerpo);transition:opacity .2s,background .2s}
+.boton:hover{opacity:.88}
+.boton-claro{background:var(--hueso);color:var(--noche)}
+.boton-arena{background:var(--arena);color:var(--noche)}
+.boton-borde{border-color:rgba(237,235,230,.5);color:var(--hueso)}
+.boton-borde:hover{background:rgba(237,235,230,.08);opacity:1}
+
+/* Placeholders (se reemplazan por fotos/videos reales) */
+.ph{position:relative;background:#1C2220;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph::after{content:attr(data-ph);position:absolute;top:16px;left:0;right:0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--niebla);text-transform:uppercase;text-align:center;padding:0 16px}
+.hero-fondo .ph::after{top:28%}
+.ph.t2{background:#2A2721}.ph.t3{background:#1D2528}.ph.t4{background:#262922}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solida{background:rgba(15,17,16,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--linea)}
+.nav .contenedor{display:flex;justify-content:space-between;align-items:center;height:72px;max-width:none}
+.marca{font-family:var(--titulo);font-weight:800;letter-spacing:.08em;font-size:16px;text-decoration:none}
+.menu{display:flex;gap:30px;align-items:center;font-size:14.5px;font-weight:500}
+.menu a{text-decoration:none;opacity:.9}.menu a:hover{opacity:1;color:var(--arena)}
+.menu .boton{min-height:42px;padding:0 18px;opacity:1}
+.menu .boton:hover{color:var(--noche)}
+.hamburguesa{display:none;width:48px;height:48px;background:none;border:0;color:var(--hueso);cursor:pointer;align-items:center;justify-content:center;margin-right:-12px}
+@media (max-width:900px){
+  .hamburguesa{display:flex}
+  .menu{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--noche);border-bottom:1px solid var(--linea);padding:8px var(--lado) 24px;display:none}
+  .menu.abierto{display:flex}
+  .menu a{padding:14px 0;font-size:18px;border-bottom:1px solid var(--linea)}
+  .menu .boton{margin-top:16px;border-bottom:0}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding:0;overflow:hidden}
+.hero-fondo{position:absolute;inset:0}
+.hero-fondo video,.hero-fondo img{width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,17,16,.96) 0%,rgba(15,17,16,.6) 40%,rgba(15,17,16,.3) 70%,rgba(15,17,16,.45) 100%)}
+.hero-texto{width:100%;text-shadow:0 1px 18px rgba(0,0,0,.45);position:relative;z-index:2;padding-bottom:clamp(56px,9vh,96px);display:flex;flex-direction:column;gap:20px}
+.hero h1{font-size:clamp(52px,10vw,128px);line-height:.92;font-weight:800;text-transform:uppercase;letter-spacing:-.025em}
+.hero p.frase{margin:0;font-size:clamp(17px,1.6vw,20px);color:#DEDCD5;max-width:600px}
+.hero .etiqueta{color:var(--hueso);font-weight:500}
+.hero .boton{text-shadow:none}
+.hero .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+@media (max-width:520px){.hero .acciones .boton{flex:1 1 100%}}
+
+/* VIDEOS */
+.reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.reel{display:flex;flex-direction:column;gap:12px;margin:0}
+.reel-marco{position:relative;aspect-ratio:9/16;border-radius:4px;overflow:hidden;background:#1C2220}
+.reel-marco video,.reel-marco img{width:100%;height:100%;object-fit:cover}
+.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;z-index:2}
+.reel-play span{width:64px;height:64px;border-radius:50%;border:1px solid rgba(237,235,230,.7);background:rgba(15,17,16,.35);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.reel-play:hover span{transform:scale(1.06)}
+.reel.reproduciendo .reel-play span{opacity:0}
+.reel h3{font-family:var(--cuerpo);font-size:16px;font-weight:600;letter-spacing:0}
+.reel p{margin:-6px 0 0;font-size:13.5px;color:var(--niebla)}
+.mas-ig{margin-top:32px}
+.ig{flex:none}
+.ig-nav{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.ig-nav .ig-texto{display:none}
+@media (max-width:900px){.ig-nav .ig-texto{display:inline}}
+@media (max-width:900px){
+  .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(var(--lado)*-1);padding:0 var(--lado) 8px;scroll-padding-inline:var(--lado);scrollbar-width:none}
+  .reels::-webkit-scrollbar{display:none}
+  .reel{flex:0 0 68%;scroll-snap-align:start}
+}
+
+/* NUMEROS */
+.numeros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--linea)}
+.numero{padding:32px 24px 8px 0;display:flex;flex-direction:column;gap:6px}
+.numero strong{font-family:var(--titulo);font-size:clamp(40px,5vw,64px);line-height:1;font-weight:800;letter-spacing:-.02em}
+.numero span{color:var(--niebla);font-size:15px}
+.nota{font-size:13px;color:var(--niebla);margin:28px 0 0}
+@media (max-width:760px){.numeros{grid-template-columns:repeat(2,minmax(0,1fr))}.numero{padding-right:12px}}
+
+/* DESTINOS */
+.destinos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.destino{display:flex;flex-direction:column;gap:12px}
+.destino .ph,.destino img{aspect-ratio:4/5;border-radius:4px;object-fit:cover;width:100%}
+.destino .lugar{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--niebla);margin:0}
+.destino h3{font-size:22px;font-weight:700}
+.destino p{margin:0;font-size:15px;color:var(--texto2)}
+@media (max-width:900px){.destinos{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.destinos{grid-template-columns:1fr}}
+
+/* VISITA */
+.entregas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.entrega{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--linea)}
+.entrega .n{font-family:var(--mono);font-size:13px;color:var(--arena);padding-top:4px;min-width:24px}
+.entrega h3{font-family:var(--cuerpo);font-size:18px;font-weight:600;letter-spacing:0;margin-bottom:6px}
+.entrega p{margin:0;color:var(--texto2);font-size:15.5px}
+.pasos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:64px}
+.paso{display:flex;flex-direction:column;gap:8px}
+.paso b{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--arena);font-weight:500}
+.paso h3{font-family:var(--cuerpo);font-size:16px;font-weight:600;letter-spacing:0}
+.paso p{margin:0;font-size:14.5px;color:var(--niebla)}
+@media (max-width:860px){.entregas{grid-template-columns:1fr}.pasos{grid-template-columns:1fr 1fr}}
+
+/* FOTOS */
+.fotos{columns:3 280px;column-gap:12px}
+.foto{break-inside:avoid;margin:0 0 12px;cursor:zoom-in;border:0;padding:0;background:none;width:100%;display:block}
+.foto img,.foto .ph{width:100%;border-radius:2px}
+.foto .ph{aspect-ratio:4/5}.foto .ph.horizontal{aspect-ratio:3/2}
+.visor{border:0;padding:0;background:rgba(10,11,10,.96);max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+.visor::backdrop{background:rgba(10,11,10,.96)}
+.visor[open]{display:flex;align-items:center;justify-content:center}
+.visor img{max-width:92vw;max-height:88vh;object-fit:contain}
+.visor-cerrar{position:absolute;top:16px;right:16px;width:48px;height:48px;border:0;background:none;color:var(--hueso);cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* SOBRE MI */
+.sobre{display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,6vw,80px);align-items:center}
+.sobre .retrato{aspect-ratio:4/5;border-radius:4px;width:100%;object-fit:cover}
+.sobre-texto{display:flex;flex-direction:column;gap:20px}
+.sobre-texto p{margin:0;color:var(--texto2)}
+.equipo{border-top:1px solid var(--linea);padding-top:18px;display:flex;flex-direction:column;gap:6px}
+.equipo small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--niebla)}
+.equipo p{color:var(--hueso);font-size:15.5px}
+@media (max-width:860px){.sobre{grid-template-columns:1fr}}
+.sobre.sin-foto{grid-template-columns:1fr}
+.sobre.sin-foto .sobre-texto{max-width:760px}
+[hidden]{display:none!important}
+
+/* CONTACTO */
+.contacto{text-align:left}
+.contacto h2{font-size:clamp(44px,8vw,104px);font-weight:800;text-transform:uppercase;letter-spacing:-.025em;line-height:.95;margin:16px 0 24px}
+.contacto p.bajada{max-width:560px;color:var(--texto2);margin:0 0 32px}
+.contacto .acciones{display:flex;flex-wrap:wrap;gap:12px}
+.datos{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:36px;font-size:15px;color:var(--niebla)}
+.datos a{color:var(--hueso)}
+@media (max-width:520px){.contacto .acciones .boton{flex:1 1 100%}}
+
+footer{border-top:1px solid var(--linea);padding:28px 0;font-size:13px;color:var(--niebla)}
+footer .contenedor{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer .coord{font-family:var(--mono);letter-spacing:.06em}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="contenedor">
+    <a href="#inicio" class="marca">MANUELO ESPINOSA</a>
+    <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="#videos">Videos</a>
+      <a href="#comunidad">Comunidad</a>
+      <!-- <a href="#destinos">Destinos</a> -->
+      <a href="#visita">Cómo trabajo</a>
+      <!-- <a href="#fotografia">Fotografía</a> -->
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="https://www.instagram.com/manuelo.espinosa/" class="ig-nav" target="_blank" rel="noopener" aria-label="Instagram de Manuelo Espinosa"><svg class="ig" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span class="ig-texto">Instagram</span></a>
+      <a href="#contacto" class="boton boton-arena">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="hero" id="inicio">
+  <div class="hero-fondo" id="hero-fondo">
+    <video id="video-portada" muted loop playsinline preload="auto" aria-hidden="true"></video>
+  </div>
+  <div class="contenedor hero-texto">
+    <p class="etiqueta">Puerto Madryn · Chubut · Argentina</p>
+    <h1>Manuelo<br>Espinosa</h1>
+    <p class="frase">Creador audiovisual. Documento la naturaleza y los destinos de Argentina para acercarlos a las personas e inspirar su conservación.</p>
+    <div class="acciones">
+      <a href="#videos" class="boton boton-claro">Ver mis videos</a>
+      <a href="#contacto" class="boton boton-borde">Trabajemos juntos</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="contenedor">
+    <div class="intro-seccion">
+      <p class="etiqueta">01 — Videos</p>
+      <h2>Reels y cortos documentales</h2>
+    </div>
+    <div class="reels" id="reels"></div>
+    <a class="boton boton-borde mas-ig" href="https://www.instagram.com/manuelo.espinosa/" target="_blank" rel="noopener"><svg class="ig" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Ver más en Instagram</a>
+  </div>
+</section>
+
+<!-- COMUNIDAD -->
+<section id="comunidad" class="alterna">
+  <div class="contenedor">
+    <div class="intro-seccion">
+      <p class="etiqueta">02 — Comunidad</p>
+      <h2>Una audiencia argentina que viaja y se interesa por la naturaleza</h2>
+    </div>
+    <div class="numeros">
+      <div class="numero"><strong>17,8 mil</strong><span>seguidores en Instagram</span></div>
+      <div class="numero"><strong>100 mil</strong><span>alcance promedio por Reel</span></div>
+      <div class="numero"><strong>83%</strong><span>del público es de Argentina</span></div>
+      <div class="numero"><strong>24–44</strong><span>años, rango de edad principal</span></div>
+    </div>
+    <p class="nota">Datos de Instagram, noviembre 2026. También presente en YouTube y TikTok.</p>
+  </div>
+</section>
+
+<!-- DESTINOS -->
+<!-- OCULTA hasta tener el material: quitar "hidden" para mostrarla -->
+<section id="destinos" hidden>
+  <div class="contenedor">
+    <div class="intro-seccion">
+      <p class="etiqueta">03 — Destinos</p>
+      <h2>Lugares que documenté</h2>
+      <p class="bajada">Cada destino contado con fotografía, video y la experiencia real de recorrerlo.</p>
+    </div>
+    <div class="destinos" id="destinos-lista"></div>
+  </div>
+</section>
+
+<!-- VISITA -->
+<section id="visita">
+  <div class="contenedor">
+    <div class="intro-seccion">
+      <p class="etiqueta">03 — Cómo trabajo con destinos</p>
+      <h2>Qué incluye una colaboración</h2>
+    </div>
+    <div class="entregas">
+      <div class="entrega"><span class="n">01</span><div><h3>Reels documentales</h3><p>Videos verticales publicados en mi cuenta, que muestran el lugar, su naturaleza y sus experiencias.</p></div></div>
+      <div class="entrega"><span class="n">02</span><div><h3>Historias durante la visita</h3><p>Cobertura en tiempo real mientras recorro el destino, con menciones y ubicación.</p></div></div>
+      <div class="entrega"><span class="n">03</span><div><h3>Fotografías editadas</h3><p>Fotos en alta calidad para que el destino use en sus redes y su web.</p></div></div>
+      <div class="entrega"><span class="n">04</span><div><h3>Tomas aéreas y 360°</h3><p>Imágenes con drone e Insta360 para mostrar paisajes y recorridos completos.</p></div></div>
+    </div>
+    <div class="pasos">
+      <div class="paso"><b>PASO 1</b><h3>Conversamos</h3><p>Qué quiere mostrar el destino y en qué época.</p></div>
+      <div class="paso"><b>PASO 2</b><h3>Armamos la agenda</h3><p>Lugares, prestadores y experiencias a documentar.</p></div>
+      <div class="paso"><b>PASO 3</b><h3>Visita y rodaje</h3><p>Recorro, filmo y fotografío el destino.</p></div>
+      <div class="paso"><b>PASO 4</b><h3>Publicación y resultados</h3><p>Publico el contenido y comparto las estadísticas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOTOGRAFIA -->
+<!-- OCULTA hasta tener las fotos: quitar "hidden" para mostrarla -->
+<section id="fotografia" hidden>
+  <div class="contenedor">
+    <div class="intro-seccion">
+      <p class="etiqueta">05 — Fotografía</p>
+      <h2>Naturaleza, fauna y viajes</h2>
+    </div>
+    <div class="fotos" id="fotos"></div>
+  </div>
+</section>
+
+<!-- SOBRE MI -->
+<section id="sobre-mi" class="alterna">
+  <div class="contenedor sobre sin-foto">
+    <div class="ph retrato" data-ph="Tu retrato trabajando en campo" hidden></div>
+    <div class="sobre-texto">
+      <p class="etiqueta">04 — Sobre mí</p>
+      <h2>Nací y me crié en Puerto Madryn, frente al mar.</h2>
+      <p>Soy creador audiovisual y fotógrafo. Crecí rodeado de ballenas, lobos marinos y estepa, y de ahí viene mi forma de mirar: documentar la naturaleza tal como es y contarla de manera simple.</p>
+      <p>Hoy recorro Argentina mostrando destinos, fauna y experiencias de viaje para una comunidad que quiere conocer el país y cuidarlo.</p>
+      <div class="equipo">
+        <small>EQUIPO</small>
+        <p>Sony A7III · DJI Mini 4 Pro · Insta360 X5 · Micrófonos DJI · iPhone 17 Pro Max</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+  <div class="contenedor">
+    <p class="etiqueta">05 — Contacto</p>
+    <h2>Viajemos<br>juntos</h2>
+    <p class="bajada">Cada viaje es una oportunidad para descubrir, documentar y compartir nuevas historias. Si tenés una propuesta, podemos crear algo juntos.</p>
+    <div class="acciones">
+      <a class="boton boton-arena" href="mailto:soymanuelo.content@gmail.com?subject=Propuesta%20de%20colaboraci%C3%B3n">Escribime por email</a>
+      <a class="boton boton-borde" href="https://www.instagram.com/manuelo.espinosa/" target="_blank" rel="noopener"><svg class="ig" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+    </div>
+    <div class="datos">
+      <span>Email: <a href="mailto:soymanuelo.content@gmail.com?subject=Propuesta%20de%20colaboraci%C3%B3n">soymanuelo.content@gmail.com</a></span>
+      <span>Instagram: <a href="https://www.instagram.com/manuelo.espinosa/" target="_blank" rel="noopener">@manuelo.espinosa</a></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="contenedor">
+    <span>© Manuelo Espinosa · soymanuelo.com · <a href="https://www.instagram.com/manuelo.espinosa/" target="_blank" rel="noopener">@manuelo.espinosa</a></span>
+    <span class="coord">42°46′S · 65°02′O</span>
+  </div>
+</footer>
+
+<dialog class="visor" id="visor" aria-label="Foto ampliada">
+  <button class="visor-cerrar" id="visor-cerrar" aria-label="Cerrar">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <img id="visor-img" alt="">
+</dialog>
+
+<script>
+/* =========================================================
+   CONTENIDO DE LA WEB — se edita acá
+   Dejá video/poster/foto vacíos ('') para ver un espacio reservado.
+   ========================================================= */
+const REELS = [
+  { titulo: 'Historia Ballena Franca Austral', lugar: 'Península Valdés · Chubut', video: 'assets/reels/reel-3.mp4', poster: 'assets/reels/reel-3.jpg' },
+  { titulo: 'Navegando bajo las Cataratas', lugar: 'Cataratas del Iguazú · Misiones', video: 'assets/reels/reel-1.mp4', poster: 'assets/reels/reel-1.jpg' },
+  { titulo: 'Entre palmeras y yacarés', lugar: 'Bañado La Estrella · Formosa', video: 'assets/reels/reel-4.mp4', poster: 'assets/reels/reel-4.jpg' },
+  { titulo: 'Cómo visitar los Esteros del Iberá', lugar: 'Colonia Carlos Pellegrini · Corrientes', video: 'assets/reels/reel-2.mp4', poster: 'assets/reels/reel-2.jpg' },
+  { titulo: 'Una ballena al atardecer', lugar: 'Puerto Madryn · Chubut', video: 'assets/reels/reel-5.mp4', poster: 'assets/reels/reel-5.jpg' }
+];
+const DESTINOS = [
+  { nombre: '[Destino]', lugar: '[Provincia]', texto: '[Qué documentaste y un resultado: por ej. 250 mil reproducciones]', foto: '' },
+  { nombre: '[Destino]', lugar: '[Provincia]', texto: '[Qué documentaste y un resultado: por ej. 250 mil reproducciones]', foto: '' },
+  { nombre: '[Destino]', lugar: '[Provincia]', texto: '[Qué documentaste y un resultado: por ej. 250 mil reproducciones]', foto: '' }
+];
+const FOTOS = [
+  { foto: '', descripcion: '', horizontal: false },
+  { foto: '', descripcion: '', horizontal: true },
+  { foto: '', descripcion: '', horizontal: false },
+  { foto: '', descripcion: '', horizontal: true },
+  { foto: '', descripcion: '', horizontal: false },
+  { foto: '', descripcion: '', horizontal: false },
+  { foto: '', descripcion: '', horizontal: true },
+  { foto: '', descripcion: '', horizontal: false },
+  { foto: '', descripcion: '', horizontal: true }
+];
+
+const PORTADA = {
+  horizontal: { video: 'assets/video/portada.mp4', imagen: 'assets/img/portada.jpg' },
+  vertical:   { video: 'assets/video/portada-vertical.mp4', imagen: 'assets/img/portada-vertical.jpg' }
+};
+
+/* ========== a partir de acá, funcionamiento ========== */
+// Video de portada: versión vertical en pantallas angostas
+(() => {
+  const v = document.getElementById('video-portada');
+  const p = matchMedia('(max-aspect-ratio: 4/5)').matches ? PORTADA.vertical : PORTADA.horizontal;
+  v.poster = p.imagen;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) return;
+  v.src = p.video;
+  v.muted = true;
+  const intento = v.play(); if (intento) intento.catch(() => {});
+})();
+const tonos = ['', 't2', 't3', 't4'];
+const el = (tag, attrs = {}, html = '') => { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (html) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const iconoPlay = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EDEBE6" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>';
+
+// Reels
+const reelsBox = document.getElementById('reels');
+REELS.forEach((r, i) => {
+  const fig = el('figure', { class: 'reel' });
+  const marco = el('div', { class: 'reel-marco' + (r.video ? '' : ' ph ' + tonos[i % 4]), 'data-ph': 'Reel vertical 9:16' });
+  if (r.video) {
+    const v = el('video', { src: r.video, preload: 'none', playsinline: '', loop: '' });
+    if (r.poster) v.setAttribute('poster', r.poster);
+    const btn = el('button', { class: 'reel-play', 'aria-label': 'Reproducir: ' + r.titulo }, '<span>' + iconoPlay + '</span>');
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.reel video').forEach(o => { if (o !== v) { o.pause(); o.closest('.reel').classList.remove('reproduciendo'); } });
+      if (v.paused) { v.play(); fig.classList.add('reproduciendo'); } else { v.pause(); fig.classList.remove('reproduciendo'); }
+    });
+    marco.append(v, btn);
+  } else {
+    marco.append(el('span', { class: 'reel-play', 'aria-hidden': 'true', style: 'pointer-events:none' }, '<span>' + iconoPlay + '</span>'));
+  }
+  fig.append(marco, el('h3', {}, esc(r.titulo)), el('p', {}, esc(r.lugar)));
+  reelsBox.append(fig);
+});
+
+// Destinos
+const destBox = document.getElementById('destinos-lista');
+DESTINOS.forEach((d, i) => {
+  const art = el('article', { class: 'destino' });
+  art.append(d.foto ? el('img', { src: d.foto, alt: d.nombre, loading: 'lazy' }) : el('div', { class: 'ph ' + tonos[i % 4], 'data-ph': 'Foto del destino' }));
+  art.append(el('p', { class: 'lugar' }, esc(d.lugar)), el('h3', {}, esc(d.nombre)), el('p', {}, esc(d.texto)));
+  destBox.append(art);
+});
+
+// Fotos + visor
+const fotosBox = document.getElementById('fotos');
+const visor = document.getElementById('visor'), visorImg = document.getElementById('visor-img');
+FOTOS.forEach((f, i) => {
+  if (f.foto) {
+    const b = el('button', { class: 'foto', 'aria-label': 'Ampliar foto' + (f.descripcion ? ': ' + f.descripcion : '') });
+    b.append(el('img', { src: f.foto, alt: f.descripcion || '', loading: 'lazy' }));
+    b.addEventListener('click', () => { visorImg.src = f.foto; visorImg.alt = f.descripcion || ''; visor.showModal(); });
+    fotosBox.append(b);
+  } else {
+    const d = el('div', { class: 'foto' });
+    d.append(el('div', { class: 'ph ' + tonos[i % 4] + (f.horizontal ? ' horizontal' : ''), 'data-ph': 'Foto' }));
+    fotosBox.append(d);
+  }
+});
+document.getElementById('visor-cerrar').addEventListener('click', () => visor.close());
+visor.addEventListener('click', e => { if (e.target === visor) visor.close(); });
+
+// Menú
+const nav = document.getElementById('nav'), menu = document.getElementById('menu'), ham = document.getElementById('hamburguesa');
+ham.addEventListener('click', () => { const a = menu.classList.toggle('abierto'); ham.setAttribute('aria-expanded', a); nav.classList.add('solida'); });
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('abierto'); ham.setAttribute('aria-expanded', 'false'); }));
+const alScroll = () => nav.classList.toggle('solida', window.scrollY > 40 || menu.classList.contains('abierto'));
+window.addEventListener('scroll', alScroll, { passive: true }); alScroll();
+</script>
+</body>
+</html>
